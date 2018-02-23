@@ -1,0 +1,47 @@
+.main-container-cost-plane span{
+    font-size:28px!important; 
+}
+.main-container-cost-plane-arror {
+	margin-top: 60px!important;
+    margin-left: 2%!important;
+}
+.main-container-cost-plane-box-span{
+    margin-left:18%!important;
+    }
+.main-container-select-a1
+{
+    background-image: url(../images/selecta1.png);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta1.png', sizingMethod='scale');
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta1.png', sizingMethod='scale')";
+}
+.main-container-select-a2
+{
+    background-image: url(../images/selecta2.png);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta2.png', sizingMethod='scale');
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta2.png', sizingMethod='scale')";
+}
+.main-container-select-a3
+{
+    background-image: url(../images/selecta3.png);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta3.png', sizingMethod='scale');
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/selecta3.png', sizingMethod='scale')";
+}
+.list-picture1{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide1.11.jpg', sizingMethod='scale')";
+}
+.list-picture2{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide-2.22png', sizingMethod='scale')"; 
+}
+.list-picture3{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide3.33.jpg', sizingMethod='scale')";
+}
+.list-picture4{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide-4.44.png', sizingMethod='scale')";
+}
+.list-picture5{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide4.44.jpg', sizingMethod='scale')"!important;
+}
+.list-picture6{
+    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/slide-6.66.png', sizingMethod='scale')";
+}
+

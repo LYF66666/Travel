@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}景点{% endblock %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/travelcontentplugin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/travelcontent.css' %}">
+{% endblock %}
+{% block custom_js %}
+    <script type="text/javascript" src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+  	<script type="text/javascript" charset="utf-8" src="{% static 'js/jquery.travelcontent.leanModal.min.js' %}"></script>
+    <script type="text/javascript">
+        {% if success %}
+            alert("评论成功！");
+        {% endif %}
+    </script>
+{% endblock %}
+{% block travel %}<h2>Travel</h2>{% endblock %}
+{% block content %}
+    <div class="main">
+			<div class="main-top" style="background-image: url({{ MEDIA_URL }}{{ spot.banner }});">
+					<h2>
+					<span class="main-top-line main-top-line-top"></span>
+					<span class="main-top-line main-top-line-right"></span>
+					<span class="main-top-line main-top-line-bottom"></span>
+					<span class="main-top-line main-top-line-left"></span>
+					{{ spot.name }}</h2>
+					<div class="main-top-box" style="margin-top: 100px">
+						<p>门票优惠价</p>
+						<span>￥{{ spot.cost }}</span>
+					</div>
+			</div>
+			<div class="main-container clearfix">
+				<div class="main-container-top">
+					<p>{{ spot.desc }}</p>
+				</div>
+				<div class="main-container-mid clearfix">
+					<div class="main-container-mid-similar main-container-mid-lside">
+						<img src="{{ MEDIA_URL }}{{ spot.image1 }}" alt="" style="height: 300px" >
+						<p style="height: 400px">{{ spot.summary1 }}</p>
+					</div>
+					<div class="main-container-mid-similar main-container-mid-rside">
+						<img src="{{ MEDIA_URL }}{{ spot.image2 }}" alt="" style="height: 300px">
+						<p style="height: 400px">{{ spot.summary2 }}</p>
+					</div>
+				</div>
+
+				<div class="main-container-bottom clearfix">
+                    {% if all_comments.count != 0 %}
+                        <h2>评论</h2>
+                        {% for comment in all_comments %}
+                            <div style="border: 1px solid black; line-height: 50px;font-size: 20px;margin:16px 0px 16px 0px;padding: 0px 16px 0px 16px;">
+                                <p style="margin:16px 0px 5px 0px">{{ comment.user.username }}:</p>
+                                <p style="overflow: hidden;">	{{ comment.content }}</p>
+                                <p style="margin:5px 0px 16px 0px;padding: 0px 16px 0px 890px">{{ comment.add_time }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <form method="post" action="{% url 'comment' %}">
+                            <input type="text" style="width: 100% ;height:120px; display: block; line-height: 32px;padding-left: 32px;" name="content">
+                            <input type="hidden" value="{{ user.id }}" name="user_id">
+                            <input type="hidden" value="{{ spot.id }}" name="spot_id">
+					        <button style="float: right;margin-top:32px;width: 64px;height: 40px;color: white;background-color: rgb(25,118,210);font-size: 19px;border-radius: 5px; ">提交</button>
+                        {% csrf_token %}
+                        </form>
+                    {% endif %}
+
+				</div>
+
+				<div class="main-container-bottom clearfix">
+					<h2>附近</h2>
+					<li class="clearfix main-container-bottom-different"><a href="">酒 店</a></li>
+					<li class="clearfix"><a href="">餐 厅</a></li>
+					<li class="clearfix"><a href="">购 物</a></li>
+					<li class="clearfix"><a href="">租 车</a></li>
+				</div>
+
+			</div>
+		</div>
+    <script type="text/javascript">
+        $(function(){
+          $('#loginform').submit(function(e){
+            return false;
+          });
+          $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+        });
+        </script>
+        <script src="http://www.jq22.com/js/jq.js"></script>
+{% endblock %}
